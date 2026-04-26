@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: springai-tool
+  ai:
+    openai:
+      api-key: ${api-key}
+
+external:
+  api:
+    weather:
+      key: d4a69094581249938b5111002261904
