@@ -4,6 +4,7 @@ import com.example.springai_tool.services.ChatService;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,10 @@ public class HelperTool {
 
     @Autowired
     public final RestClient restClient;
+
+    @Value("${WEATHER_API_KEY}")
+    private String weather_api_key;
+
 
     public HelperTool(RestClient restClient) {
         this.restClient = restClient;
@@ -41,7 +46,7 @@ public class HelperTool {
             response = restClient.get()
                     .uri(
                             uriBuilder -> uriBuilder.path(uri)
-                                    .queryParam("key", "************")
+                                    .queryParam("key", weather_api_key)
                                     .queryParam("q", city)
                                     .build()
                     )
