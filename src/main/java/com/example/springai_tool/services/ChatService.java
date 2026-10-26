@@ -29,8 +29,8 @@ public class ChatService {
         );
 
         String renderTemplate = template.render(Map.of(
-                "role","AI Agent",
-                "audience-role","Researcher"
+                "role","Travel AI Agent",
+                "audience-role","Tourist"
         ));
 
 

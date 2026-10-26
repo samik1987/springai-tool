@@ -26,7 +26,7 @@ public class HelperTool {
 
 
     // ** Informational Tool
-    @Tool(description = "Get weather information of given location or area")
+    @Tool(name = "WeatherTool", description = "Get weather information of given location or area")
     public String GetTodayWeather(@ToolParam(description="The city which I want weather information") String city,
                                   @ToolParam(description="uri to get specific weather report as per user request") String uri)
     {
@@ -41,7 +41,7 @@ public class HelperTool {
             response = restClient.get()
                     .uri(
                             uriBuilder -> uriBuilder.path(uri)
-                                    .queryParam("key", "d4a69094581249938b5111002261904")
+                                    .queryParam("key", "************")
                                     .queryParam("q", city)
                                     .build()
                     )
